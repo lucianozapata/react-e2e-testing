@@ -31,7 +31,7 @@ code {
   align-items: center;
 }
 
-#mapList {
+.mapList {
   display: flex;
   width: 30%;
   border-style: solid;
