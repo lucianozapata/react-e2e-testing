@@ -1,5 +1,21 @@
 import React from "react";
 
+function generateListItem(props, item, index) {
+  return (
+    <div id="mapList" key={index}>
+      <div id="uniqueItemDiv">{item}</div>
+      <div
+        
+        id="deleteDiv"
+      >
+        x
+      </div>
+    </div>
+  );
+}
+
+
+
 export function ItemView(props) {
   const [name, setName] = React.useState("");
 
@@ -33,21 +49,9 @@ export function ItemView(props) {
 
       {/* The shopping list. */}
       <div id="itemDiv">
-        {props.list.map((item, index) => {
-          return (
-              <div id="mapList" key={index}>
-                <div id="uniqueItemDiv">{item}</div>
-                <div
-                  onClick={() => {
-                    props.removeItem(item);
-                  }}
-                  id="deleteDiv"
-                >
-                  x
-                </div>
-              </div>
-          );
-        })}
+        {props.list.map((item, index) => 
+          generateListItem(props, item, index))
+          }
       </div>
     </div>
   );
