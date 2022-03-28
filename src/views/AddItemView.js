@@ -35,8 +35,7 @@ export function ItemView(props) {
       <div id="itemDiv">
         {props.list.map((item, index) => {
           return (
-            <>
-              <div id="mapList">
+              <div id="mapList" key={index}>
                 <div id="uniqueItemDiv">{item}</div>
                 <div
                   onClick={() => {
@@ -47,7 +46,6 @@ export function ItemView(props) {
                   x
                 </div>
               </div>
-            </>
           );
         })}
       </div>
