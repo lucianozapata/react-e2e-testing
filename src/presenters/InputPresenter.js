@@ -3,7 +3,7 @@ import { ItemView } from "../views/AddItemView";
 
 export function InputPresenter() {
   // Initial List
-  let initialList = ["Testing", "Två"];
+  let initialList = ["Milk", "Chocolate"];
 
   /**
    * Function that adds a new item to the shopping list.
