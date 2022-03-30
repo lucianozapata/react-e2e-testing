@@ -1,4 +1,5 @@
 import React from "react";
+const sqlite3 = require("sqlite3").verbose();
 
 export function ItemView(props) {
   const [name, setName] = React.useState("");
@@ -35,17 +36,17 @@ export function ItemView(props) {
       <div id="itemDiv">
         {props.list.map((item, index) => {
           return (
-              <div id="mapList" key={index}>
-                <div id="uniqueItemDiv">{item}</div>
-                <div
-                  onClick={() => {
-                    props.removeItem(item);
-                  }}
-                  id="deleteDiv"
-                >
-                  x
-                </div>
+            <div id="mapList" key={index}>
+              <div id="uniqueItemDiv">{item}</div>
+              <div
+                onClick={() => {
+                  props.removeItem(item);
+                }}
+                id="deleteDiv"
+              >
+                x
               </div>
+            </div>
           );
         })}
       </div>
