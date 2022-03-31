@@ -1,5 +1,4 @@
 import React from "react";
-const sqlite3 = require("sqlite3").verbose();
 
 export function ItemView(props) {
   const [name, setName] = React.useState("");
