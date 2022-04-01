@@ -19,6 +19,8 @@ export function ItemView(props) {
           <label>
             <input
               type="text"
+              id="katacodaid"
+              name="inputDiv"
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
@@ -27,7 +29,7 @@ export function ItemView(props) {
           </label>
         </div>
         <div>
-          <input type="submit" />
+          <input id="clickbutton" type="submit" />
         </div>
       </form>
 
@@ -42,6 +44,7 @@ export function ItemView(props) {
                   props.removeItem(item);
                 }}
                 id="deleteDiv"
+                s
               >
                 x
               </div>
