@@ -18,7 +18,7 @@ jobs:
         node-version: [12.x, 14.x, 16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-     steps:
+    steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
         uses: tj-actions/puppeteer@v3.2
@@ -28,4 +28,3 @@ jobs:
         uses: tj-actions/puppeteer@v3.2
         with:
           args: yarn test
- 
