@@ -26,6 +26,8 @@ jobs:
         run: npm install
         env:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+      - name: Install chrome
+        run: npm install puppeteer --save-dev
       - name: Run headful puppeteer tests
         uses: djp3/puppeteer-headful@master
         with:
