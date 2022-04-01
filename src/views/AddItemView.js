@@ -44,7 +44,6 @@ export function ItemView(props) {
                   props.removeItem(item);
                 }}
                 id="deleteDiv"
-                s
               >
                 x
               </div>
