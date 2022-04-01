@@ -22,6 +22,8 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: 12.x
+      - name: cd-Correctly
+        run: cd src/
       - name: Install stuff
         run: npm install
         env:
