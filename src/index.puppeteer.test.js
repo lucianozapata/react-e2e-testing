@@ -17,7 +17,6 @@ describe("First site", () => {
   it("Add an element in shopping List", async () => {
     const browser = await puppeteer.launch({
       headless: true,
-      slowMo: 200,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
