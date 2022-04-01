@@ -10,31 +10,21 @@ on:
     branches: [main]
 
 jobs:
-  end_to_end_tests:
-    name: Run Headful End-to-End Tests
+  build:
     runs-on: ubuntu-latest
-    env:
-      CI: "true"
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Install node
-        uses: actions/setup-node@v2-beta
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
         with:
-          node-version: 12.x
-      - name: cd-Correctly
-        run: cd src/
-      - name: Install stuff
-        run: npm install
-        env:
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
-      - name: Install apt
-        run: sudo apt-get update
-      - name: libgbm
-        run: sudo apt-get install -y libgbm-dev
-      - name: libgm 11
-        run: sudo apt-get install -y libxkbcommon-x11-0
-      - name: Run headful puppeteer tests
-        uses: djp3/puppeteer-headful@master
-        with:
-          args: npm test a
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
