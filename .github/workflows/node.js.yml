@@ -28,6 +28,12 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
       - name: Install chrome
         run: npm install puppeteer --save-dev
+      - name: Install apt
+        run: sudo apt-get update
+      - name: libgbm
+        run: sudo apt-get install -y libgbm-dev
+      - name: libgm 11
+        run: sudo apt-get install -y libxkbcommon-x11-0
       - name: Run headful puppeteer tests
         uses: djp3/puppeteer-headful@master
         with:
