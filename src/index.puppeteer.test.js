@@ -6,7 +6,7 @@ const URL = "http://localhost:3000/";
 describe("First site", () => {
   it(" Milk is in list", async () => {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: ["--no-sandbox"],
     });
     const page = await browser.newPage();
@@ -18,7 +18,7 @@ describe("First site", () => {
 
   it("Add an element in shopping List", async () => {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       slowMo: 200,
       args: ["--no-sandbox"],
     });
