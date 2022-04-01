@@ -5,7 +5,7 @@ describe("First site", () => {
   it(" Milk is in list", async () => {
     const browser = await puppeteer.launch({
       headless: true,
-      args: ["--no-sandbox"],
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
     await page.goto(URL, { waitUntil: "domcontentloaded" });
@@ -18,7 +18,7 @@ describe("First site", () => {
     const browser = await puppeteer.launch({
       headless: true,
       slowMo: 200,
-      args: ["--no-sandbox"],
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
     await page.goto(URL, { waitUntil: "domcontentloaded" });
