@@ -17,10 +17,9 @@ describe("First site", () => {
   //   expect(text).toContain("Chocolate");
   // });
 
-  test("Add an element in shopping List", async (done) => {
+  test("Add an element in shopping List", async () => {
     const browser = await puppeteer.launch({
       headless: true,
-      slowMo: 200,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
@@ -32,11 +31,7 @@ describe("First site", () => {
 
     const text = await page.evaluate(() => document.body.textContent);
 
-    await browser.close();
-    await page.close();
-    await text.close();
-
     expect(text).toContain("Eggs");
-    done();
-  });
+    await browser.close();
+  }, 40000);
 });
