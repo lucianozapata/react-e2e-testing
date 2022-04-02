@@ -19,12 +19,13 @@ const URL = "http://localhost:3000/";
 
 test("Add an element in shopping List", async () => {
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
+    slowMo: 200,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
 
-  page.goto(URL, { waitUntil: "domcontentloaded" });
+  await page.goto(URL, { waitUntil: "domcontentloaded" });
   await page.waitForSelector("input[name=inputDiv]");
   await page.type("#katacodaid", "Eggs");
   await page.click("#clickbutton");
