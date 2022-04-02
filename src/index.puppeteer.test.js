@@ -24,15 +24,16 @@ describe("First site", () => {
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
-    await browser.close();
+
     page.goto(URL, { waitUntil: "domcontentloaded" });
     await page.waitForSelector("input[name=inputDiv]");
     await page.type("#katacodaid", "Eggs");
     await page.click("#clickbutton");
-    await page.close();
 
     const text = await page.evaluate(() => document.body.textContent);
 
+    await browser.close();
+    await page.close();
     await text.close();
 
     expect(text).toContain("Eggs");
