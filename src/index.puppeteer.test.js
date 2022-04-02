@@ -20,7 +20,6 @@ const URL = "http://localhost:3000/";
 test("Add an element in shopping List", async () => {
   const browser = await puppeteer.launch({
     headless: false,
-    slowMo: 200,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
   });
   const page = await browser.newPage();
