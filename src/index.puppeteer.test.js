@@ -15,7 +15,7 @@ describe("First site", () => {
     await page.close();
     expect(text).toContain("Milk");
     expect(text).toContain("Chocolate");
-  });
+  }, 40000);
 
   test("Add an element in shopping List", async () => {
     const browser = await puppeteer.launch({
