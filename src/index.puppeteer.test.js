@@ -12,15 +12,17 @@ describe("First site", () => {
     const text = await page.evaluate(() => document.body.textContent);
     expect(text).toContain("Milk");
     expect(text).toContain("Chocolate");
+    await browser.close();
   }, 10000);
 
   it("Add an element in shopping List", async () => {
     const browser = await puppeteer.launch({
       headless: true,
+      slowMo: 200,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
-    await page.goto(URL, { waitUntil: "domcontentloaded" });
+    page.goto(URL, { waitUntil: "domcontentloaded" });
     await page.waitForSelector("input[name=inputDiv]");
     await page.type("#katacodaid", "Eggs");
     await page.click("#clickbutton");
@@ -28,5 +30,6 @@ describe("First site", () => {
     const text = await page.evaluate(() => document.body.textContent);
 
     expect(text).toContain("Eggs");
+    await browser.close();
   }, 10000);
 });
