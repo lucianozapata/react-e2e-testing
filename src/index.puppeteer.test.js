@@ -13,6 +13,8 @@ describe("First site", () => {
     expect(text).toContain("Milk");
     expect(text).toContain("Chocolate");
     await browser.close();
+    await text.close();
+    await page.close();
   }, 10000);
 
   it("Add an element in shopping List", async () => {
@@ -31,5 +33,7 @@ describe("First site", () => {
 
     expect(text).toContain("Eggs");
     await browser.close();
+    await text.close();
+    await page.close();
   }, 10000);
 });
