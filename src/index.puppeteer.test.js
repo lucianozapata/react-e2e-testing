@@ -27,9 +27,7 @@ describe("First site", () => {
     await browser.close();
     page.goto(URL, { waitUntil: "domcontentloaded" });
     await page.waitForSelector("input[name=inputDiv]");
-    await page.close();
     await page.type("#katacodaid", "Eggs");
-    await page.close();
     await page.click("#clickbutton");
     await page.close();
 
