@@ -17,7 +17,7 @@ describe("First site", () => {
   //   expect(text).toContain("Chocolate");
   // });
 
-  test("Add an element in shopping List", async () => {
+  test("Add an element in shopping List", async (done) => {
     const browser = await puppeteer.launch({
       headless: true,
       slowMo: 200,
@@ -37,5 +37,6 @@ describe("First site", () => {
     await text.close();
 
     expect(text).toContain("Eggs");
+    done();
   });
 });
