@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer");
 const URL = "http://localhost:3000/";
 
 describe("First site", () => {
-  it(" Milk is in list", async () => {
+  test("Milk is in list", async () => {
     const browser = await puppeteer.launch({
       headless: true,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
@@ -15,9 +15,9 @@ describe("First site", () => {
     await page.close();
     expect(text).toContain("Milk");
     expect(text).toContain("Chocolate");
-  }, 10000);
+  });
 
-  it("Add an element in shopping List", async () => {
+  test("Add an element in shopping List", async () => {
     const browser = await puppeteer.launch({
       headless: true,
       slowMo: 200,
@@ -35,5 +35,5 @@ describe("First site", () => {
     await text.close();
     await page.close();
     expect(text).toContain("Eggs");
-  }, 10000);
+  });
 });
