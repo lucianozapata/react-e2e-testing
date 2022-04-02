@@ -10,11 +10,9 @@ describe("First site", () => {
     const page = await browser.newPage();
     await page.goto(URL, { waitUntil: "domcontentloaded" });
     const text = await page.evaluate(() => document.body.textContent);
-    await browser.close();
-    await text.close();
-    await page.close();
     expect(text).toContain("Milk");
     expect(text).toContain("Chocolate");
+    await browser.close();
   }, 40000);
 
   test("Add an element in shopping List", async () => {
