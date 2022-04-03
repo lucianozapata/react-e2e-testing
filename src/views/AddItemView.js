@@ -3,6 +3,7 @@ import React from "react";
 export function ItemView(props) {
   const [name, setName] = React.useState("");
   const [found, setFound] = React.useState(false);
+  var counter = 0;
 
   return (
     <div id="testDiv">
@@ -61,6 +62,10 @@ export function ItemView(props) {
 
   function changeColor() {
     setFound(true);
+    counter++;
+    if (counter === 10) {
+      props.updateList("Easter egg 2");
+    }
     var letters = "0123456789ABCDEF";
     var color = "#";
     for (var i = 0; i < 6; i++) {
