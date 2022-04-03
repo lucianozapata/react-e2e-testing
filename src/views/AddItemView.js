@@ -64,7 +64,7 @@ export function ItemView(props) {
     setFound(true);
     setCounter(counter + 1);
     if (counter === 10) {
-      props.updateList("Easter egg 2");
+      props.updateList("Another Easter egg!");
     }
     if (counter === 100) {
       document.getElementById("Heading").innerHTML = "You're good at clicking";
