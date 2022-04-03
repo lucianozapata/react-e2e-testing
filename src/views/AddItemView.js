@@ -2,11 +2,16 @@ import React from "react";
 
 export function ItemView(props) {
   const [name, setName] = React.useState("");
+  const [found, setFound] = React.useState(false);
 
   return (
     <div id="testDiv">
       <div></div>
-      <div id="Heading">Shopping list</div>
+      {found && <div>You found an easter egg!</div>}
+
+      <div id="Heading" onClick={changeColor}>
+        Shopping list
+      </div>
       <form
         id="flexDiv"
         onSubmit={(e) => {
@@ -53,4 +58,14 @@ export function ItemView(props) {
       </div>
     </div>
   );
+
+  function changeColor() {
+    setFound(true);
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    document.getElementById("Heading").style.color = color;
+  }
 }
